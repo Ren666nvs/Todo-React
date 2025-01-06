@@ -243,4 +243,13 @@ body {
 .footer-brand {
   color: red; 
 }
+.no-tasks {
+  text-align: center;
+  color: #aaa;
+  font-size: 16px;
+  margin: 20px 0;
+}
+.app-wrapper:has(.no-tasks) {
+  height: auto;
+}
 
