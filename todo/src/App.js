@@ -52,6 +52,7 @@ const App = () => {
             Add
           </button>
         </form>
+
         <div className="filter-buttons">
           <button
             className={`filter-button ${filter === "all" ? "active" : ""}`}
@@ -74,50 +75,46 @@ const App = () => {
             Completed
           </button>
         </div>
-        <ul className="list">
-          {filteredTodos.map((todo, index) => (
-            <li
-              className={`list-item ${todo.completed ? "completed" : ""}`}
-              key={index}
-            >
-              <span onClick={() => toggleCompletion(index)}>{todo.task}</span>
-              <button
-                className="button-delete"
-                onClick={() => deleteTask(index)}
-              >
-                Delete
-              </button>
-            </li>
-          ))}
-        </ul>
-        { <ul className="list">
-  {filteredTodos.length > 0 ? (
-    filteredTodos.map((todo, index) => (
-      <li
-        className={`list-item ${todo.completed ? "completed" : ""}`}
-        key={index}
-      >
-      
-      </li>
-    ))
-  ) : (
-    <li className="list-item no-tasks">
-      No tasks yet. Add one above!
-    </li>
-  )}
-</ul> 
-}
 
-        <div className="task-summary">
-          <span className="task-count">{`${completedCount} of ${totalCount} tasks completed`}</span>
-          <button
-            className="button-clear"
-            onClick={() => setTodos(todos.filter((todo) => !todo.completed))}
-          >
-            Clear completed
-            {filteredTodos.length === 0 }
-          </button>
-        </div>
+        <ul className="list">
+          {filteredTodos.length > 0 ? (
+            filteredTodos.map((todo, index) => (
+              <li
+                className={`list-item ${todo.completed ? "completed" : ""}`}
+                key={index}
+              >
+                <span onClick={() => toggleCompletion(index)}>
+                  {todo.task}
+                </span>
+                <button
+                  className="button-delete"
+                  onClick={() => deleteTask(index)}
+                >
+                  Delete
+                </button>
+              </li>
+            ))
+          ) : (
+            <p className="no-tasks">No tasks yet. Add one above!</p>
+          )}
+        </ul>
+
+        {todos.length > 0 && (
+          <div className="task-summary">
+            <span className="task-count">{`${completedCount} of ${totalCount} tasks completed`}</span>
+            {completedCount > 0 && (
+              <button
+                className="button-clear"
+                onClick={() =>
+                  setTodos(todos.filter((todo) => !todo.completed))
+                }
+              >
+                Clear completed
+              </button>
+            )}
+          </div>
+        )}
+
         <footer className="footer">
           <p className="footer-text">
             Powered by <span className="footer-brand">Pinecone Academy</span>
