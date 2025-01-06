@@ -1,33 +1,3 @@
-// import React, {useState} from "react";
-// import Header from "./components/Header";
-// import Form from "./components/Form";
-// import "./App.css";
-
-// const App = () => {
-
-//     const[input, setInput] = useState("");
-//     const[todos, setTodos] = useState([]);
-//     return (
-//     <div className="container">
-// <div className="app-wrapper">
-// <div>
-//     <Header/>
-//    </div>
-//    <div>
-//     <Form 
-//     input={input}
-//     setInput={setInput}
-//     todos={setTodos}
-//     setTodos={setTodos}
-//     />
-//    </div>
-//    </div>
-//    </div>
-//    );
-// };
-
-
-// export default App;
 import React, { useState } from "react";
 import Header from "./components/Header";
 import "./App.css";
@@ -56,7 +26,6 @@ const App = () => {
     setTodos(newTodos);
   };
 
-  // Filtering todos based on the filter
   const filteredTodos = todos.filter((todo) => {
     if (filter === "all") return true;
     if (filter === "active") return !todo.completed;
@@ -64,7 +33,7 @@ const App = () => {
     return true;
   });
 
-  const completedCount = todos.filter(todo => todo.completed).length;
+  const completedCount = todos.filter((todo) => todo.completed).length;
   const totalCount = todos.length;
 
   return (
@@ -97,7 +66,9 @@ const App = () => {
             Active
           </button>
           <button
-            className={`filter-button ${filter === "completed" ? "active" : ""}`}
+            className={`filter-button ${
+              filter === "completed" ? "active" : ""
+            }`}
             onClick={() => setFilter("completed")}
           >
             Completed
@@ -119,14 +90,38 @@ const App = () => {
             </li>
           ))}
         </ul>
+        { <ul className="list">
+  {filteredTodos.length > 0 ? (
+    filteredTodos.map((todo, index) => (
+      <li
+        className={`list-item ${todo.completed ? "completed" : ""}`}
+        key={index}
+      >
+      
+      </li>
+    ))
+  ) : (
+    <li className="list-item no-tasks">
+      No tasks yet. Add one above!
+    </li>
+  )}
+</ul> 
+}
+
         <div className="task-summary">
           <span className="task-count">{`${completedCount} of ${totalCount} tasks completed`}</span>
-          <button className="button-clear" onClick={() => setTodos(todos.filter(todo => !todo.completed))}>
+          <button
+            className="button-clear"
+            onClick={() => setTodos(todos.filter((todo) => !todo.completed))}
+          >
             Clear completed
+            {filteredTodos.length === 0 }
           </button>
         </div>
         <footer className="footer">
-          <p className="footer-text">Powered by <span className="footer-brand">Pinecone Academy</span></p>
+          <p className="footer-text">
+            Powered by <span className="footer-brand">Pinecone Academy</span>
+          </p>
         </footer>
       </div>
     </div>

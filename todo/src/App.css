@@ -175,12 +175,12 @@ body {
 .list {
   list-style: none;
   padding-left: 0;
+
 }
 
 .list-item {
   display: flex;
   justify-content: space-between;
-  padding: 10px;
   background-color: #fff;
   margin-bottom: 10px;
   border-radius: 5px;
@@ -193,7 +193,7 @@ body {
 }
 
 .button-delete {
-  background-color: rgba(113, 1, 65, 0.214); 
+  background-color: rgba(0, 0, 0, 0.1); 
   color: red;
   border: none;
   padding: 10px;
