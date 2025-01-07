@@ -187,10 +187,6 @@ body {
   box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
 }
 
-.list-item.completed {
-  text-decoration: line-through;
-  color: #aaa;
-}
 
 .button-delete {
   background-color: rgba(0, 0, 0, 0.1); 
@@ -252,4 +248,3 @@ body {
 .app-wrapper:has(.no-tasks) {
   height: auto;
 }
-
