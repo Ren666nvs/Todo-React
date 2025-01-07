@@ -122,6 +122,7 @@ body {
 .header h1 {
   text-align: center;
   color: #ff3b30; 
+  padding: 20px;
 }
 
 .form {
@@ -130,7 +131,7 @@ body {
 }
 
 .task-input {
-  width: 80%;
+  width: 82%;
   padding: 10px;
   font-size: 16px;
   border: 1px solid #ccc;
@@ -146,6 +147,7 @@ body {
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  margin-left: 5px;
 }
 
 .button-add:hover {
@@ -216,7 +218,7 @@ body {
   
   color: red;
   border: none;
-
+  margin-left: 72px;
   cursor: pointer;
 }
 

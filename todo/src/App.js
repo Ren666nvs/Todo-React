@@ -97,21 +97,17 @@ const App = () => {
             </li>
           ))}
         </ul>
-        {todos.length > 0 && (
-          <div className="task-summary">
+        {totalCount > 0 && (
+          <div className="no-tasks">
             <span className="task-count">{`${completedCount} of ${totalCount} tasks completed`}</span>
             {completedCount > 0 && (
               <button
                 className="button-clear"
-                onClick={() =>
-                  setTodos(todos.filter((todo) => !todo.completed))
-                }
+                onClick={() => setTodos(todos.filter((todo) => !todo.completed))}
               >
                 Clear completed
               </button>
             )}
-          </div>
-        )}
           </div>
         )}
         <footer className="footer">
