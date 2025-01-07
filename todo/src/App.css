@@ -248,3 +248,40 @@ body {
 .app-wrapper:has(.no-tasks) {
   height: auto;
 }
+.checkbox-wrapper {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  width: 100%;
+}
+
+.checkbox-wrapper input[type="checkbox"] {
+  margin-right: 12px;
+  margin-left: 8px; 
+  width: 18px;
+  height: 18px;
+  accent-color: #ff3b30;
+  cursor: pointer;
+}
+
+
+.task-text {
+  font-size: 16px;
+}
+
+.task-text.completed {
+  color: #aaa;
+  text-decoration: none;
+}
+
+.checkbox-wrapper input[type="checkbox"]:checked + .task-text {
+  color: #aaa;
+  text-decoration: line-through;
+}
+
+.empty-message {
+  text-align: center;
+  color: #888;
+  margin: 20px 0;
+  font-size: 16px;
+}

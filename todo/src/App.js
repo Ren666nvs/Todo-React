@@ -112,7 +112,8 @@ const App = () => {
             )}
           </div>
         )}
-        
+          </div>
+        )}
         <footer className="footer">
           <p className="footer-text">
             Powered by <span className="footer-brand">Pinecone Academy</span>
