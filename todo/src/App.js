@@ -71,6 +71,12 @@ const App = () => {
           >
             Completed
           </button>
+          <button
+            className={`filter-button ${filter === "log" ? "active" : ""}`}
+            onClick={() => setFilter("log")}
+          >
+            Log
+          </button>
         </div>
         {filteredTodos.length === 0 && (
           <p className="empty-message">No tasks yet. Add one above!</p>
