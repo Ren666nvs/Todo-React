@@ -4,18 +4,14 @@ import "./App.css";
 
 const App = () => {
   const [task, setTask] = useState("");
-  const [date, setDate] = useState("");
   const [todos, setTodos] = useState([]);
   const [filter, setFilter] = useState("all");
 
   const onFormSubmit = (e) => {
     e.preventDefault();
-    if (task.trim() && date) {
-      const currentTime = new Date().toLocaleString();
-      setTodos([...todos, { task, date, time: currentTime, completed: false }]);
-      console.log(`Task added: ${task} - Date: ${date} - Time: ${currentTime}`);
+    if (task.trim()) {
+      setTodos([...todos, { task, completed: false }]);
       setTask("");
-      setDate("");
     }
   };
 
@@ -34,6 +30,7 @@ const App = () => {
     if (filter === "all") return true;
     if (filter === "active") return !todo.completed;
     if (filter === "completed") return todo.completed;
+    
     return true;
   });
 
@@ -52,12 +49,6 @@ const App = () => {
             onChange={(e) => setTask(e.target.value)}
             placeholder="Add a new task..."
           />
-          <input
-            type="date"
-            className="date-input"
-            value={date}
-            onChange={(e) => setDate(e.target.value)}
-          />
           <button type="submit" className="button-add">
             Add
           </button>
@@ -65,37 +56,25 @@ const App = () => {
         <div className="filter-buttons">
           <button
             className={`filter-button ${filter === "all" ? "active" : ""}`}
-            onClick={() => {
-              setFilter("all");
-              console.log(`Filter set to: all - Time: ${new Date().toLocaleString()}`);
-            }}
+            onClick={() => setFilter("all")}
           >
             All
           </button>
           <button
             className={`filter-button ${filter === "active" ? "active" : ""}`}
-            onClick={() => {
-              setFilter("active");
-              console.log(`Filter set to: active - Time: ${new Date().toLocaleString()}`);
-            }}
+            onClick={() => setFilter("active")}
           >
             Active
           </button>
           <button
             className={`filter-button ${filter === "completed" ? "active" : ""}`}
-            onClick={() => {
-              setFilter("completed");
-              console.log(`Filter set to: completed - Time: ${new Date().toLocaleString()}`);
-            }}
+            onClick={() => setFilter("completed")}
           >
             Completed
           </button>
           <button
             className={`filter-button ${filter === "log" ? "active" : ""}`}
-            onClick={() => {
-              setFilter("log");
-              console.log(`Filter set to: log - Time: ${new Date().toLocaleString()}`);
-            }}
+            onClick={() => setFilter("log")}
           >
             Log
           </button>
@@ -113,7 +92,7 @@ const App = () => {
                   onChange={() => toggleCompletion(index)}
                 />
                 <span className={`task-text ${todo.completed ? "completed" : ""}`}>
-                  {todo.task} - {todo.date} - {todo.time}
+                  {todo.task}
                 </span>
               </label>
               <button
