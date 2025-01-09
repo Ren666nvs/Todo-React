@@ -2,9 +2,9 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <footer>
-      <p>
-        Powered by <strong>Pinecone Academy</strong>
+    <footer className="footer">
+      <p className="footer-text">
+        Powered by <span className="footer-brand">Pinecone Academy</span>
       </p>
     </footer>
   );

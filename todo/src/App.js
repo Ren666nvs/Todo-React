@@ -32,14 +32,17 @@ const App = () => {
   return (
     <div className="app">
       <Header />
-      <form onSubmit={addTask}>
+      <form className="task-form" onSubmit={addTask}>
         <input
           type="text"
+          className="task-input"
           value={task}
           onChange={(e) => setTask(e.target.value)}
           placeholder="Add a new task"
         />
-        <button type="submit">Add</button>
+        <button type="submit" className="add-button">
+          Add
+        </button>
       </form>
       <FilterButtons filter={filter} setFilter={setFilter} />
       <TodoList

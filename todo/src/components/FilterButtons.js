@@ -2,21 +2,21 @@ import React from "react";
 
 const FilterButtons = ({ filter, setFilter }) => {
   return (
-    <div>
+    <div className="filter-buttons">
       <button
-        style={{ fontWeight: filter === "all" ? "bold" : "normal" }}
+        className={`filter-button ${filter === "all" ? "active" : ""}`}
         onClick={() => setFilter("all")}
       >
         All
       </button>
       <button
-        style={{ fontWeight: filter === "active" ? "bold" : "normal" }}
+        className={`filter-button ${filter === "active" ? "active" : ""}`}
         onClick={() => setFilter("active")}
       >
         Active
       </button>
       <button
-        style={{ fontWeight: filter === "completed" ? "bold" : "normal" }}
+        className={`filter-button ${filter === "completed" ? "active" : ""}`}
         onClick={() => setFilter("completed")}
       >
         Completed
