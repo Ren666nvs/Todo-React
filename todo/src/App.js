@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Header from "./components/Header";
 import "./App.css";
-
+import TaskForm from "./components/TaskForm";
 const App = () => {
   const [task, setTask] = useState("");
   const [todos, setTodos] = useState([]);
@@ -41,18 +41,8 @@ const App = () => {
     <div className="container">
       <div className="app-wrapper">
         <Header />
-        <form onSubmit={onFormSubmit} className="form">
-          <input
-            type="text"
-            className="task-input"
-            value={task}
-            onChange={(e) => setTask(e.target.value)}
-            placeholder="Add a new task..."
-          />
-          <button type="submit" className="button-add">
-            Add
-          </button>
-        </form>
+        <TaskForm />
+      
         <div className="filter-buttons">
           <button
             className={`filter-button ${filter === "all" ? "active" : ""}`}
