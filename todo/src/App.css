@@ -26,7 +26,7 @@ body {
 
 .header h1 {
   text-align: center;
-  color: #ff3b30; 
+  color: #ff3b30;
   padding: 20px;
 }
 
@@ -46,7 +46,7 @@ body {
 .button-add {
   width: 15%;
   padding: 10px;
-  background-color: #ff3b30; 
+  background-color: #ff3b30;
   color: white;
   font-size: 16px;
   border: none;
@@ -75,14 +75,13 @@ body {
 }
 
 .filter-button.active {
-  background-color: #ff3b30; 
+  background-color: #ff3b30;
   color: white;
 }
 
 .list {
   list-style: none;
   padding-left: 0;
-
 }
 
 .list-item {
@@ -94,9 +93,8 @@ body {
   box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
 }
 
-
 .button-delete {
-  background-color: rgba(0, 0, 0, 0.1); 
+  background-color: rgba(0, 0, 0, 0.1);
   color: red;
   border: none;
   padding: 10px;
@@ -120,7 +118,6 @@ body {
 }
 
 .button-clear {
-  
   color: red;
   border: none;
   margin-left: 72px;
@@ -144,7 +141,7 @@ body {
 }
 
 .footer-brand {
-  color: red; 
+  color: red;
 }
 .no-tasks {
   text-align: center;
@@ -164,13 +161,12 @@ body {
 
 .checkbox-wrapper input[type="checkbox"] {
   margin-right: 12px;
-  margin-left: 8px; 
+  margin-left: 8px;
   width: 18px;
   height: 18px;
   accent-color: #ff3b30;
   cursor: pointer;
 }
-
 
 .task-text {
   font-size: 16px;
