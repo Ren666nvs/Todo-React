@@ -8,6 +8,7 @@ const App = () => {
   const [task, setTask] = useState('');
   const [todos, setTodos] = useState([]);
   const [filter, setFilter] = useState('all');
+  const [logs, setLogs ] = useState ([]);
 
   const onFormSubmit = (e) => {
     e.preventDefault();
