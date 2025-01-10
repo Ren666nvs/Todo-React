@@ -88,7 +88,7 @@ const App = () => {
               deleteTask={deleteTask}
             />
           ))}
-          const
+          
         </ul>
         {totalCount > 0 && (
           <div className="no-tasks">
