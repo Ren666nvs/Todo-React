@@ -98,7 +98,7 @@ const App = () => {
                 className="button-clear"
                 onClick={() => setTodos(todos.filter((todo) => !todo.completed))}
               >
-                Clear completedd
+                Clear completed
               </button>
             )}
           </div>
