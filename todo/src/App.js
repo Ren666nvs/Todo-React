@@ -9,6 +9,7 @@ const App = () => {
   const [todos, setTodos] = useState([]);
   const [filter, setFilter] = useState('all');
 
+  // Task нэмэх үйлдэл
   const onFormSubmit = (e) => {
     e.preventDefault();
     if (task.trim()) {
@@ -17,28 +18,33 @@ const App = () => {
     }
   };
 
+  // Task-ийн гүйцэтгэлийг өөрчлөх үйлдэл
   const toggleCompletion = (id) => {
-    const newTodos = todos.map((todo) => {
-      if (todo.id === id) {
-        return { ...todo, completed: !todo.completed };
-      }
-      return todo;
-    });
-    setTodos(newTodos);
+    setTodos(
+      todos.map((todo) => 
+        todo.id === id ? { ...todo, completed: !todo.completed } : todo
+      )
+    );
   };
 
+  // Task устгах үйлдэл
   const deleteTask = (id) => {
-    const newTodos = todos.filter((todo) => todo.id !== id);
-    setTodos(newTodos);
+    setTodos(todos.filter((todo) => todo.id !== id));
   };
 
+  // Шүүлтүүрт тохирсон task-уудыг шүүх
   const filteredTodos = todos.filter((todo) => {
-    if (filter === 'all') return true;
-    if (filter === 'active') return !todo.completed;
-    if (filter === 'completed') return todo.completed;
-    return true;
+    switch (filter) {
+      case 'active':
+        return !todo.completed;
+      case 'completed':
+        return todo.completed;
+      default:
+        return true;
+    }
   });
 
+  // Гүйцэтгэсэн болон нийт task-уудын тоо
   const completedCount = todos.filter((todo) => todo.completed).length;
   const totalCount = todos.length;
 
@@ -59,24 +65,15 @@ const App = () => {
           </button>
         </form>
         <div className="filter-buttons">
-          <button
-            className={`filter-button ${filter === 'all' ? 'active' : ''}`}
-            onClick={() => setFilter('all')}
-          >
-            All
-          </button>
-          <button
-            className={`filter-button ${filter === 'active' ? 'active' : ''}`}
-            onClick={() => setFilter('active')}
-          >
-            Active
-          </button>
-          <button
-            className={`filter-button ${filter === 'completed' ? 'active' : ''}`}
-            onClick={() => setFilter('completed')}
-          >
-            Completed
-          </button>
+          {['all', 'active', 'completed'].map((status) => (
+            <button
+              key={status}
+              className={`filter-button ${filter === status ? 'active' : ''}`}
+              onClick={() => setFilter(status)}
+            >
+              {status.charAt(0).toUpperCase() + status.slice(1)}
+            </button>
+          ))}
         </div>
         {filteredTodos.length === 0 && (
           <p className="empty-message">No tasks yet. Add one above!</p>
