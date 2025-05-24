@@ -8,24 +8,27 @@ const App = () => {
   const [task, setTask] = useState('');
   const [todos, setTodos] = useState([]);
   const [filter, setFilter] = useState('all');
-  const [logs, setLogs ] = useState ([]);
 
   const onFormSubmit = (e) => {
     e.preventDefault();
     if (task.trim()) {
-      setTodos([...todos, { task, completed: false }]);
+      setTodos([...todos, { id: Date.now(), task, completed: false }]);
       setTask('');
     }
   };
 
-  const toggleCompletion = (index) => {
-    const newTodos = [...todos];
-    newTodos[index].completed = !newTodos[index].completed;
+  const toggleCompletion = (id) => {
+    const newTodos = todos.map((todo) => {
+      if (todo.id === id) {
+        return { ...todo, completed: !todo.completed };
+      }
+      return todo;
+    });
     setTodos(newTodos);
   };
 
-  const deleteTask = (index) => {
-    const newTodos = todos.filter((_, i) => i !== index);
+  const deleteTask = (id) => {
+    const newTodos = todos.filter((todo) => todo.id !== id);
     setTodos(newTodos);
   };
 
@@ -79,16 +82,14 @@ const App = () => {
           <p className="empty-message">No tasks yet. Add one above!</p>
         )}
         <ul className="list">
-          {filteredTodos.map((todo, index) => (
+          {filteredTodos.map((todo) => (
             <TodoItem
-              key={index}
-              index={index}
+              key={todo.id}
               todo={todo}
               toggleCompletion={toggleCompletion}
               deleteTask={deleteTask}
             />
           ))}
-          
         </ul>
         {totalCount > 0 && (
           <div className="no-tasks">
@@ -106,7 +107,6 @@ const App = () => {
         <Footer />
       </div>
     </div>
-  
   );
 };
 
