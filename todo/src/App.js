@@ -9,7 +9,6 @@ const App = () => {
   const [todos, setTodos] = useState([]);
   const [filter, setFilter] = useState('all');
 
-  // Task нэмэх үйлдэл
   const onFormSubmit = (e) => {
     e.preventDefault();
     if (task.trim()) {
@@ -18,7 +17,6 @@ const App = () => {
     }
   };
 
-  // Task-ийн гүйцэтгэлийг өөрчлөх үйлдэл
   const toggleCompletion = (id) => {
     setTodos(
       todos.map((todo) => 
@@ -27,12 +25,10 @@ const App = () => {
     );
   };
 
-  // Task устгах үйлдэл
   const deleteTask = (id) => {
     setTodos(todos.filter((todo) => todo.id !== id));
   };
 
-  // Шүүлтүүрт тохирсон task-уудыг шүүх
   const filteredTodos = todos.filter((todo) => {
     switch (filter) {
       case 'active':
@@ -44,7 +40,6 @@ const App = () => {
     }
   });
 
-  // Гүйцэтгэсэн болон нийт task-уудын тоо
   const completedCount = todos.filter((todo) => todo.completed).length;
   const totalCount = todos.length;
 
